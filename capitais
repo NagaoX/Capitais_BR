@@ -1,0 +1,72 @@
+import random
+
+# Dicionário com os estados brasileiros e suas capitais
+estados_capitais = {
+    "Acre": "Rio Branco",
+    "Alagoas": "Maceió",
+    "Amapá": "Macapá",
+    "Amazonas": "Manaus",
+    "Bahia": "Salvador",
+    "Ceará": "Fortaleza",
+    "Distrito Federal": "Brasília",
+    "Espírito Santo": "Vitória",
+    "Goiás": "Goiânia",
+    "Maranhão": "São Luís",
+    "Mato Grosso": "Cuiabá",
+    "Mato Grosso do Sul": "Campo Grande",
+    "Minas Gerais": "Belo Horizonte",
+    "Pará": "Belém",
+    "Paraíba": "João Pessoa",
+    "Paraná": "Curitiba",
+    "Pernambuco": "Recife",
+    "Piauí": "Teresina",
+    "Rio de Janeiro": "Rio de Janeiro",
+    "Rio Grande do Norte": "Natal",
+    "Rio Grande do Sul": "Porto Alegre",
+    "Rondônia": "Porto Velho",
+    "Roraima": "Boa Vista",
+    "Santa Catarina": "Florianópolis",
+    "São Paulo": "São Paulo",
+    "Sergipe": "Aracaju",
+    "Tocantins": "Palmas"
+}
+
+# Função para exibir o quadro de capitais
+def exibir_quadro(capitais):
+    print("\nCapitais disponíveis:")
+    for capital in capitais:
+        print(capital, end=" | ")
+    print("\n")
+
+# Função principal do jogo
+def jogar():
+    # Cria uma lista de estados e uma lista de capitais
+    estados = list(estados_capitais.keys())
+    capitais = list(estados_capitais.values())
+    
+    # Embaralha a lista de estados para que as perguntas sejam feitas em ordem aleatória
+    random.shuffle(estados)
+    
+    # Loop até que todas as capitais sejam respondidas
+    while len(capitais) > 0:
+        exibir_quadro(capitais)
+        
+        # Seleciona um estado aleatório
+        estado = estados.pop()
+        print(f"A capital do Estado {estado} é:")
+        
+        # Solicita a resposta do usuário
+        resposta = input("Digite a capital: ").strip()
+        
+        # Verifica se a resposta está correta
+        if resposta == estados_capitais[estado]:
+            print("Resposta correta!\n")
+            capitais.remove(resposta)  # Remove a capital correta do quadro
+        else:
+            print(f"Resposta incorreta. A capital correta é {estados_capitais[estado]}.\n")
+    
+    print("Parabéns! Você acertou todas as capitais!")
+
+# Inicia o jogo
+if __name__ == "__main__":
+    jogar()
