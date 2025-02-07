@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprenda as Capitais do Brasil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #quadro {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .capital {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .capital:hover {
+            background-color: #e0e0e0;
+        }
+        #pergunta {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        #mensagem {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: green;
+        }
+        #mensagem.erro {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aprenda as Capitais do Brasil</h1>
+    <div id="quadro"></div>
+    <div id="pergunta"></div>
+    <div id="mensagem"></div>
+
+    <script>
+        // Dados dos estados e capitais
+        const estadosCapitais = {
+            "Acre": "Rio Branco",
+            "Alagoas": "Maceió",
+            "Amapá": "Macapá",
+            "Amazonas": "Manaus",
+            "Bahia": "Salvador",
+            "Ceará": "Fortaleza",
+            "Distrito Federal": "Brasília",
+            "Espírito Santo": "Vitória",
+            "Goiás": "Goiânia",
+            "Maranhão": "São Luís",
+            "Mato Grosso": "Cuiabá",
+            "Mato Grosso do Sul": "Campo Grande",
+            "Minas Gerais": "Belo Horizonte",
+            "Pará": "Belém",
+            "Paraíba": "João Pessoa",
+            "Paraná": "Curitiba",
+            "Pernambuco": "Recife",
+            "Piauí": "Teresina",
+            "Rio de Janeiro": "Rio de Janeiro",
+            "Rio Grande do Norte": "Natal",
+            "Rio Grande do Sul": "Porto Alegre",
+            "Rondônia": "Porto Velho",
+            "Roraima": "Boa Vista",
+            "Santa Catarina": "Florianópolis",
+            "São Paulo": "São Paulo",
+            "Sergipe": "Aracaju",
+            "Tocantins": "Palmas"
+        };
+
+        let capitaisDisponiveis = Object.values(estadosCapitais);
+        let estados = Object.keys(estadosCapitais);
+        let estadoAtual;
+
+        // Elementos da página
+        const quadro = document.getElementById("quadro");
+        const pergunta = document.getElementById("pergunta");
+        const mensagem = document.getElementById("mensagem");
+
+        // Função para exibir as capitais no quadro
+        function exibirQuadro() {
+            quadro.innerHTML = "";
+            capitaisDisponiveis.forEach(capital => {
+                const div = document.createElement("div");
+                div.className = "capital";
+                div.textContent = capital;
+                div.onclick = () => verificarResposta(capital);
+                quadro.appendChild(div);
+            });
+        }
+
+        // Função para sortear um estado e fazer a pergunta
+        function fazerPergunta() {
+            if (estados.length === 0) {
+                pergunta.textContent = "Parabéns! Você acertou todas as capitais!";
+                quadro.innerHTML = "";
+                return;
+            }
+            const indice = Math.floor(Math.random() * estados.length);
+            estadoAtual = estados[indice];
+            pergunta.textContent = `A capital do Estado ${estadoAtual} é:`;
+        }
+
+        // Função para verificar a resposta
+        function verificarResposta(resposta) {
+            if (resposta === estadosCapitais[estadoAtual]) {
+                mensagem.textContent = "Resposta correta!";
+                mensagem.className = "";
+                capitaisDisponiveis = capitaisDisponiveis.filter(capital => capital !== resposta);
+                estados = estados.filter(estado => estado !== estadoAtual);
+                exibirQuadro();
+                fazerPergunta();
+            } else {
+                mensagem.textContent = `Resposta incorreta. A capital correta é ${estadosCapitais[estadoAtual]}.`;
+                mensagem.className = "erro";
+            }
+        }
+
+        // Iniciar o jogo
+        exibirQuadro();
+        fazerPergunta();
+    </script>
+</body>
+</html>
