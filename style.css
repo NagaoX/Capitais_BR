@@ -116,8 +116,8 @@ button:hover {
         display: grid;
         grid-template-columns: repeat(3, 1fr); /* 3 colunas */
         gap: 10px;
-        max-width: 100%;
-        width: 100%;
+        max-width: 80%;
+        width: 80%;
     }
 
     /* Ajusta as opções de respostas para se manterem dentro da largura da tela */
