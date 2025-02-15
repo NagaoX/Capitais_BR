@@ -89,8 +89,8 @@
                 mensagem.className = "";
                 capitaisDisponiveis = capitaisDisponiveis.filter(capital => capital !== resposta);
                 estados = estados.filter(estado => estado !== estadoAtual);
-                exibirQuadro();
                 fazerPergunta();
+                exibirQuadro();
             } else {
                 mensagem.textContent = `Resposta incorreta. Tente de novo!`;
                 mensagem.className = "erro";
@@ -98,8 +98,8 @@
         }
 
         // Iniciar o jogo
-        exibirQuadro();
         fazerPergunta();
+        exibirQuadro();
     </script>
 </body>
 </html>
