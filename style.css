@@ -9,22 +9,34 @@
 
 html {
     font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 30px;
+    font-size: 16px;  /* Ajustado para um valor mais comum */
 }
 
 body {
     background-color: #f8f8f8;
     padding: 2rem;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-
 /* Cabeçalho */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#logo {
+    width: 50px; /* Tamanho da logo */
+    margin-right: 10px; /* Espaçamento entre logo e título */
+}
+
 h1 {
     color: #333;
     font-size: 2rem;
-    margin-bottom: 20px;
 }
 
 /* Estilo da pergunta */
@@ -37,11 +49,12 @@ h1 {
 
 /* Estilo para o quadro de respostas */
 #quadro {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
     margin: 20px auto;
     max-width: 600px;
+    width: 100%;
 }
 
 /* Estilo para cada capital */
@@ -49,12 +62,10 @@ h1 {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 5px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1.2rem;
     transition: background-color 0.3s ease;
-    width: 150px; /* Tamanho fixo para cada opção */
     text-align: center;
 }
 
@@ -124,38 +135,7 @@ button:hover {
     border-color: #ff5a5f;
 }
 
-/* layout para dispositivos mÃ³veis */
-@media only screen and (max-width: 768px) {
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    #operacao,
-    #nivel,
-    #numero-exercicios,
-    #botao-iniciar,
-    #botao-finalizar,
-    #botao-proximo,
-    #botao-nova-pagina {
-        display: block;
-        width: 100%;
-        margin: 10px 0;
-    }
-    #botao-nova-pagina {
-        margin-top: 20px;
-    }
-}
-
-/* Adiciona uma borda verde Ã s respostas corretas */
-.exercicio.resposta-correta input {
-    border-color: #3cb371;
-}
-
-/* Adiciona uma borda vermelha Ã s respostas incorretas */
-.resposta-incorreta input {
-    border-color: #ff5a5f;
-}
-
+/* Ajustes para evitar conflitos e garantir consistência */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
