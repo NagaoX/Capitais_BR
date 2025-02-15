@@ -110,18 +110,36 @@ button:hover {
         margin: 0;
         padding: 0;
     }
+
+    /* Ajusta o quadro para garantir que as opções sejam distribuídas corretamente */
     #quadro {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+        gap: 10px;
         max-width: 100%;
+        width: 100%;
     }
+
+    /* Ajusta as opções de respostas para se manterem dentro da largura da tela */
     .capital {
         font-size: 1rem;
-        width: 100px; /* Ajustando o tamanho das opções para dispositivos móveis */
+        width: 100%; /* Assegura que cada opção ocupe o espaço completo disponível dentro da coluna */
+        height: 60px; /* Ajuste o tamanho das opções para dispositivos móveis */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
+    /* Ajuste do tamanho da pergunta */
     #pergunta {
         font-size: 1.3rem;
+        text-align: center; /* Garante que a pergunta fique centralizada */
     }
+
+    /* Ajuste do tamanho da mensagem */
     #mensagem {
         font-size: 1rem;
+        text-align: center; /* Garante que a mensagem fique centralizada */
     }
 }
 
