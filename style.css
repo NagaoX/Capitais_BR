@@ -8,18 +8,17 @@
 }
 
 html {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #f8f8f8;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 /* Cabeçalho */
 h1 {
