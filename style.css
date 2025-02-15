@@ -123,3 +123,41 @@ button:hover {
 .capital.resposta-incorreta {
     border-color: #ff5a5f;
 }
+
+/* layout para dispositivos mÃ³veis */
+@media only screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #operacao,
+    #nivel,
+    #numero-exercicios,
+    #botao-iniciar,
+    #botao-finalizar,
+    #botao-proximo,
+    #botao-nova-pagina {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+    #botao-nova-pagina {
+        margin-top: 20px;
+    }
+}
+
+/* Adiciona uma borda verde Ã s respostas corretas */
+.exercicio.resposta-correta input {
+    border-color: #3cb371;
+}
+
+/* Adiciona uma borda vermelha Ã s respostas incorretas */
+.resposta-incorreta input {
+    border-color: #ff5a5f;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
