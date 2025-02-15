@@ -58,7 +58,7 @@
         const pergunta = document.getElementById("pergunta");
         const mensagem = document.getElementById("mensagem");
 
-          // Função para embaralhar as capitais
+        // Função para embaralhar as capitais
         function embaralhar(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -89,6 +89,8 @@
             const indice = Math.floor(Math.random() * estados.length);
             estadoAtual = estados[indice];
             pergunta.textContent = `A capital do Estado ${estadoAtual} é:`;
+            // Após a pergunta ser feita, embaralha as opções
+            exibirQuadro();
         }
 
         // Função para verificar a resposta
@@ -98,8 +100,7 @@
                 mensagem.className = "";
                 capitaisDisponiveis = capitaisDisponiveis.filter(capital => capital !== resposta);
                 estados = estados.filter(estado => estado !== estadoAtual);
-                fazerPergunta();
-                exibirQuadro();
+                fazerPergunta(); // Pergunta nova
             } else {
                 mensagem.textContent = `Resposta incorreta. Tente de novo!`;
                 mensagem.className = "erro";
@@ -108,7 +109,6 @@
 
         // Iniciar o jogo
         fazerPergunta();
-        exibirQuadro();
     </script>
 </body>
 </html>
